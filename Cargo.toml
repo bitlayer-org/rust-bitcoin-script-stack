@@ -9,35 +9,35 @@ repository = "https://github.com/FairgateLabs/rust-bitcoin-script-stack"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bitcoin-script = { git = "https://github.com/BitVM/rust-bitcoin-script" }
-bitcoin = { git = "https://github.com/rust-bitcoin/rust-bitcoin", branch = "bitvm" }
-bitcoin-scriptexec = { git = "https://github.com/BitVM/rust-bitcoin-scriptexec/"}
+bitcoin-script = { git = "https://github.com/bitlayer-org/rust-bitcoin-script" }
+bitcoin = { git = "https://github.com/bitlayer-org/rust-bitcoin", branch = "bf-stark" }
+bitcoin-scriptexec = { git = "https://github.com/bitlayer-org/rust-bitcoin-scriptexec/"}
 crossterm = { version = "0.27.0", optional = true}
 hex = "0.4.3"
 
 [features]
 interactive = ["crossterm"]
 
-[patch.crates-io.base58check]
-git = "https://github.com/rust-bitcoin/rust-bitcoin"
-branch = "bitvm"
+[patch.crates-io.base58ck]
+git = "https://github.com/bitlayer-org/rust-bitcoin.git"
+branch = "bf-stark"
 
 [patch.crates-io.bitcoin]
-git = "https://github.com/rust-bitcoin/rust-bitcoin"
-branch = "bitvm"
+git = "https://github.com/bitlayer-org/rust-bitcoin.git"
+branch = "bf-stark"
 
 [patch.crates-io.bitcoin_hashes]
-git = "https://github.com/rust-bitcoin/rust-bitcoin"
-branch = "bitvm"
+git = "https://github.com/bitlayer-org/rust-bitcoin.git"
+branch = "bf-stark"
 
 [patch.crates-io.bitcoin-internals]
-git = "https://github.com/rust-bitcoin/rust-bitcoin"
-branch = "bitvm"
+git = "https://github.com/bitlayer-org/rust-bitcoin.git"
+branch = "bf-stark"
 
 [patch.crates-io.bitcoin-io]
-git = "https://github.com/rust-bitcoin/rust-bitcoin"
-branch = "bitvm"
+git = "https://github.com/bitlayer-org/rust-bitcoin.git"
+branch = "bf-stark"
 
 [patch.crates-io.bitcoin-units]
-git = "https://github.com/rust-bitcoin/rust-bitcoin"
-branch = "bitvm"
+git = "https://github.com/bitlayer-org/rust-bitcoin.git"
+branch = "bf-stark"
