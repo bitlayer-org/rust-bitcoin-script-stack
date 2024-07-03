@@ -757,6 +757,13 @@ impl StackTracker {
         self.var(1, script!{{value}}, &format!("number({:#x})", value))
     }
 
+    pub fn bignumber(&mut self, value: Vec<u32>) -> StackVariable {
+        self.var(value.len() as u32, script!{
+            for i in (0.. value.len()).rev(){
+                {value[i]}
+            }}, &format!("number({:?})", value))
+    }
+
     pub fn byte(&mut self, value: u8) -> StackVariable {
         self.var(2, byte_to_nibble(value), &format!("byte({:#x})", value))
     }
