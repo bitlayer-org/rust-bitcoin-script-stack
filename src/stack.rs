@@ -501,6 +501,38 @@ impl StackTracker {
         None
     }
 
+    pub fn custom1(
+        &mut self,
+        script: Script,
+        consumes: u32,
+        output_var_num: u32,
+        to_altstack_var_num: u32,
+        var_size: u32,
+        var_name: &str,
+    ) -> Option<Vec<StackVariable>> {
+        for _ in 0..consumes {
+            self.data.pop_stack();
+        }
+
+        if output_var_num != 0 {
+            let ret = (0..output_var_num)
+                .into_iter()
+                .map(|_| self.define(var_size, var_name))
+                .collect();
+            self.push_script(script);
+            return Some(ret);
+        }
+
+        for _ in 0..to_altstack_var_num {
+            let c = self.next_counter();
+            self.data.push_altstack(StackVariable::new(c, var_size));
+        }
+
+        self.push_script(script);
+        None
+    }
+
+
     fn op(&mut self, op: Opcode, consumes: u32, output: bool, name: &str ) -> Option<StackVariable> {
         let mut s = Script::new();
         s.push_opcode(op);
