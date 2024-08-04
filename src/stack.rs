@@ -36,6 +36,7 @@ impl StackVariable {
     }
 }
 
+#[derive(Clone, Debug)]
 enum RedoOps {
     PushStack(StackVariable),
     PushAltstack(StackVariable),
@@ -48,6 +49,7 @@ enum RedoOps {
     IncreaseSize(usize, u32),
 }
 
+#[derive(Clone, Debug)]
 pub struct StackData {
     pub(crate) stack: Vec<StackVariable>,
     pub(crate) altstack: Vec<StackVariable>,
@@ -157,6 +159,7 @@ impl StackData {
     }
 }
 
+#[derive(Clone, Debug)]
 pub struct StackTracker {
     pub(crate) data: StackData,
     pub(crate) script: Vec<Script>,
